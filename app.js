@@ -1,9 +1,5 @@
 //const { name } = require('ejs');
-const http = require('http');
-const port = process.env.PORT || 3000
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;});
 const express = require('express');
 const nav = [
    {link:'./books',name:'Books'},
@@ -97,4 +93,4 @@ app.get('/addbook',function(req,res){
    });
 });*/
 
-app.listen(3333);
+app.listen(process.env.PORT || 3000);
