@@ -53,7 +53,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Login
+        <h1>Add Books
           <p class="lead"></p>
         </h1>
       </div>
@@ -80,7 +80,7 @@
   
 </div>
 <div class="container w-25 bg-light my-5">
-  <form  >
+  <form method="GET"  action="/admin/add">
     <div class="mb-3" >
         <label for="name" class="form-label"> Author Name</label>
         <input type="text" class="form-control" id="aname" aria-describedby="firstName">
@@ -92,6 +92,15 @@
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Genre</label>
       <input type="text" class="form-control" id="genre" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3" >
+      <label for="exampleInputEmail1" class="form-label">Genre</label>
+      <input type="text" class="form-control" id="genre" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3" >
+      <label for="exampleInputEmail1" class="form-label">Image</label>
+      <input type="file" name = "image" id="image">
+      <button type = submit>Add</button>
     </div>
     <!--<div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
