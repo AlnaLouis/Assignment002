@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Login</title>
+		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -80,23 +80,25 @@
   
 </div>
 <div class="container w-25 bg-light my-5">
-  <form >
+  <form method="POST" action="/admin/add">
     <div class="mb-3" >
         <label for="name" class="form-label"> Author Name</label>
-        <input type="text" class="form-control" id="aname" aria-describedby="firstName">
+        <input type="text" class="form-control" id="author" name="author" aria-describedby="firstName">
       </div>
       <div class="mb-3" >
         <label for="lname" class="form-label"> Book Name</label>
-        <input type="text" class="form-control" id="bname" aria-describedby="LastName">
+        <input type="text" class="form-control" name="title" id="title" aria-describedby="LastName">
       </div>
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Genre</label>
-      <input type="text" class="form-control" id="genre" aria-describedby="emailHelp">
+      <input type="text" class="form-control"name="genre" id="genre" aria-describedby="emailHelp">
     </div>
+    <!--
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Genre</label>
       <input type="text" class="form-control" id="genre" aria-describedby="emailHelp">
-    </div>
+    </div><br>
+    -->
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Image</label>
       <input type="file" name = "image" id="image">

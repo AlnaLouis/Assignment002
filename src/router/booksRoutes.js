@@ -4,20 +4,20 @@ function router(nav){
     var books =
     [
         {
-            work:'Tom and Jerry',
-            name:'Joseph Barbara',
+            title:'Tom and Jerry',
+            author:'Joseph Barbara',
             genre:'Cartoon',
             img:"food.jpg"
         },
         {
-            work:'Pathumayude Aadu',
-            name:'Basheer',
+            title:'Pathumayude Aadu',
+            author:'Basheer',
             genre:'Drama',
             img:"path.jpg"
         },
         {
-            work:'Harry Potter',
-            name:'J.K Rowling',
+            title:'Harry Potter',
+            author:'J.K Rowling',
             genre:'Fantasy',
             img:"a.jpg"
         }

@@ -2,16 +2,16 @@
 
 const express = require('express');
 const nav = [
-   {link:'./books',name:'Books'},
-   {link:'./authors',name:'Authors'},
-   {link:'./login',name:'Login'},
-   {link:'./signin',name:'Sign in'},
-   {link:'./addbook',name:'Add Book'}
+   {link:'/books',name:'Books'},
+   {link:'/authors',name:'Authors'},
+   {link:'/login',name:'Login'},
+   {link:'/signin',name:'Sign in'},
+   {link:'/admin',name:'Add Book'}///addbook is edited to /admin cause admin has only the permission 
 ];
 const bookRouter = require('./src/router/booksRoutes')(nav)
 const authRouter = require('./src/router/authRoutes')(nav)
 const signRouter = require('./src/router/signRoutes')(nav)
-//const adminRouter = require('./src/router/adminRoutes')(nav)
+const adminRouter = require('./src/router/adminRoutes')(nav)
 //create separate route handler
 //const authRouter = express.Router;
 const app = express();
@@ -23,8 +23,10 @@ app.set('views',__dirname+'/src/views');//this can be also given as__dirname+ in
 app.use('/books',bookRouter);//we use app.use because what ever comes after /book/ it should route to books page
 app.use('/authors',authRouter);
 app.use('/signin',signRouter);
-//app.use('/addbook',adminRouter);
+app.use('/admin',adminRouter);
+app.use(express.urlencoded({extended:true}));
 app.get('/',function(req,res){
+
    // res.sendFile(__dirname+"/src/views/index.html");// this is used to send a file
    //res.render is used in ejs file
   // res.render("index",{books:['book1','book2'],title:'library'});
