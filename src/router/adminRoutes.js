@@ -44,7 +44,7 @@ function router(nav){
     var item={
         title: req.body.title,
         author:req.body.author,
-        genre:req.body.genre,h
+        genre:req.body.genre,
         image:req.body.image
     }
    
