@@ -12,7 +12,9 @@ const nav = [
 const bookRouter = require('./src/router/booksRoutes')(nav)
 const authRouter = require('./src/router/authRoutes')(nav)
 const signRouter = require('./src/router/signRoutes')(nav)
+const logRouter = require('./src/router/logRoutes')(nav)
 const adminRouter = require('./src/router/adminRoutes')(nav)
+
 //create separate route handler
 //const authRouter = express.Router;
 const app = express();
@@ -26,6 +28,7 @@ app.use('/books',bookRouter);//we use app.use because what ever comes after /boo
 app.use('/authors',authRouter);
 app.use('/signin',signRouter);
 app.use('/admin',adminRouter);
+app.use('/login',logRouter);
 
 app.get('/',function(req,res){
 
@@ -69,13 +72,13 @@ app.get('/',function(req,res){
    });
 });
 */
-app.get('/login',function(req,res){
+/*app.get('/login',function(req,res){
    res.render("login",{
       nav,
       title:'Login',
    
    });
-});
+});*/
 /*app.get('/signin',function(req,res){
    res.render("signin",{
       nav,
@@ -99,4 +102,4 @@ app.get('/addbook',function(req,res){
    });
 });*/
 
-app.listen(process.env.PORT || 7000);
+app.listen(process.env.PORT || 7001);

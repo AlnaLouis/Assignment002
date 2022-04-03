@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Login</title>
+		<title>Sign in</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=0;i<nav.length;i++){%>
+        <%for(i=2;i<4;i++){%>
           <li>
           <a href=" <%=nav[i].link%>"> <%=nav[i].name%></a>
         </li>
@@ -53,7 +53,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Login
+        <h1> Sign in
           <p class="lead"></p>
         </h1>
       </div>
@@ -70,18 +70,25 @@
     </div> 
   </div><!-- /cont -->
   
-  <div class="container">
+         <!--div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="top-spacer"> </div>
       </div>
     </div> 
-  </div><!-- /cont -->
+  </div--> <!-- /cont -->
   
 </div>
-<div class="container w-25 bg-light my-5">
+<div
+class="p-5  bg-image"
+style="
+  background-image: url('https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGlicmFyaWVzfGVufDB8fDB8fA%3D%3D&w=1000&q=80');
+  height: 400px;
+"
+>
+<div class="container w-10 bg-light my-5">
   <form  >
-    <div class="mb-3" >
+    <div class="mb-3 px-2" >
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" aria-describedby="firstName">
       </div>
@@ -101,12 +108,12 @@
       <label for="exampleInputPassword2" class="form-label"> re-enter Password</label>
       <input type="password" class="form-control" id="exampleInputPassword2">
     </div>
-    
+    <br>
     <button type="submit"  class="btn btn-primary" onclick="index.ejs">Submit</button>
   </form>
 </div>
 
-
+</div>
 <div class="container" id="footer">
   <div class="row">
     <div class="col col-sm-12">
