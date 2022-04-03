@@ -23,7 +23,7 @@ module.exports = routers;
 
 const express = require('express');
 const logRouter = express.Router();
-const Userdata = require('../model/Userdata');
+//const Userdata = require('../model/Userdata');
 
 function router(nav){
     logRouter.get('/',function(req,res){//  the "/ "  is only needed to mention the /admin as it is already stored in app.use
@@ -55,9 +55,8 @@ function router(nav){
     genre: req.query.genre,
     image: req.query.image
    }*/
-  var user=  Userdata(item);
-  user.save();//saving to database
-  res.redirect('/dashboard');
+
+  //res.redirect('/dashboard');
   
 
   //to check post method try again  the res.send('Hey I am added)

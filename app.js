@@ -7,7 +7,8 @@ const nav = [
    {link:'/login',name:'Login'},
    {link:'/signin',name:'signin'},
    {link:'/admin',name:'Add Book'},
-   {link:'/aadmin',name:'Add Authors'}///addbook is edited to /admin cause admin has only the permission 
+   {link:'/aadmin',name:'Add Authors'}
+  ///addbook is edited to /admin cause admin has only the permission 
 ];
 
 const bookRouter = require('./src/router/booksRoutes')(nav)

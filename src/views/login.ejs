@@ -87,7 +87,7 @@
 <br>
 <div class="container w-25 bg-light my-5">
  
-  <form method="POST" action="/Login/login" >
+  <form method="POST" action="/login/login" onsubmit="return !!(checkemail()&checkpassword())" >
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       <input type="email" class="form-control" id="email" aria-describedby="emailHelp"  oninput=" checkemail()">
@@ -97,10 +97,10 @@
       <label for="exampleInputPassword1" class="form-label">Password</label>
       <input type="password" class="form-control" id="password"  oninput=" checkpassword()">
     </div>
-    <span id="error1"></span>
+    <span id="error2"></span>
    
     <br>
-    <button type="submit" class="btn btn-primary" onsubmit="return !! (checkemail()&checkpassword())">Submit</button>
+    <button type="submit" class="btn btn-primary"  >Submit</button>
   </form>
 </div>
 </div>
