@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style1.css">
     
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -91,22 +92,27 @@ style="
     <div class="mb-3 px-2" >
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" aria-describedby="firstName">
+        <small></small>
       </div>
       <div class="mb-3" >
         <label for="lname" class="form-label"> Last Name</label>
         <input type="text" class="form-control" id="lname" aria-describedby="LastName">
+        <small></small>
       </div>
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+      <small></small>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
       <input type="password" class="form-control" id="password1">
+      <small></small>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword2" class="form-label"> re-enter Password</label>
       <input type="password" class="form-control" id="password2">
+      <small></small>
     </div>
     <br>
     <button type="submit"  class="btn btn-primary" onclick="index.ejs">Submit</button>
@@ -154,5 +160,6 @@ style="
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
 	</body>
 </html>

@@ -1,0 +1,11 @@
+.form-control small{
+    position: absolute;
+    margin: 3px;
+    visibility: hidden;
+}
+.form-control.success input{
+    border: 2px solid rgb(57, 240, 32);
+}
+.form-control.success input{
+    border: 2px solid rgb(245, 11, 11);
+}
