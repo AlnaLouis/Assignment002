@@ -8,6 +8,7 @@ const nav = [
    {link:'/signin',name:'Sign in'},
    {link:'/admin',name:'Add Book'}///addbook is edited to /admin cause admin has only the permission 
 ];
+
 const bookRouter = require('./src/router/booksRoutes')(nav)
 const authRouter = require('./src/router/authRoutes')(nav)
 const signRouter = require('./src/router/signRoutes')(nav)
@@ -17,6 +18,7 @@ const adminRouter = require('./src/router/adminRoutes')(nav)
 const app = express();
 app.use(express.static('./public'));
 app.set('view engine','ejs');
+app.use(express.urlencoded({extended:true}));
 app.set('views',__dirname+'/src/views');//this can be also given as__dirname+ instead of .
 
 // teaching server that when ever / books come it  it should route to books
@@ -24,7 +26,7 @@ app.use('/books',bookRouter);//we use app.use because what ever comes after /boo
 app.use('/authors',authRouter);
 app.use('/signin',signRouter);
 app.use('/admin',adminRouter);
-app.use(express.urlencoded({extended:true}));
+
 app.get('/',function(req,res){
 
    // res.sendFile(__dirname+"/src/views/index.html");// this is used to send a file
