@@ -14,6 +14,7 @@ const adminRouter = express.Router();
     adminRouter.get('/add',function(req,res){
         res.send("Hey I am added");
     });
+   
     
     return adminRouter;
  }
@@ -24,6 +25,7 @@ module.exports = routers;
 const express = require('express');
 const adminRouter = express.Router();
 const Bookdata = require('../model/Bookdata');
+
 function router(nav){
     adminRouter.get('/',function(req,res){//  the "/ "  is only needed to mention the /admin as it is already stored in app.use
         res.render("addbook",{
@@ -31,6 +33,7 @@ function router(nav){
             title:'Library'
         })
     })
+    
     // CHANGE "dminRouter.get('/add',function(req,res){"  "to dminRouter.post('/add',function(req,res){" as we are using post method
 //adminRouter.get('/add',function(req,res){
     adminRouter.post('/add',function(req,res){  
@@ -48,6 +51,7 @@ function router(nav){
         image:req.body.image
     }
    
+   
     /*title: req.query.title,
     author:req.query.author,
     genre: req.query.genre,
@@ -62,6 +66,7 @@ function router(nav){
   /*res.send('Hey i am added');*/
   //after it we comment it again and uncommented  early commented things
 })
+
 
     return adminRouter;
 }

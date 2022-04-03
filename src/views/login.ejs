@@ -86,21 +86,21 @@
   >
 <br>
 <div class="container w-25 bg-light my-5">
-  <form  onsubmit="return validatioin()" action ="index.ejs">
+ 
+  <form method="POST" action="/Login/login" >
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp"  oninput=" checkemail()">
     </div>
+    <span id="error1"></span>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <input type="password" class="form-control" id="password"  oninput=" checkpassword()">
     </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword2" class="form-label"> re-enter Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword2">
-    </div>
+    <span id="error1"></span>
+   
     <br>
-    <button type="submit"  class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" onsubmit="return !! (checkemail()&checkpassword())">Submit</button>
   </form>
 </div>
 </div>
@@ -144,5 +144,6 @@
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+    <script src="js/log.js"></script>
 	</body>
 </html>

@@ -5,8 +5,9 @@ const nav = [
    {link:'/books',name:'Books'},
    {link:'/authors',name:'Authors'},
    {link:'/login',name:'Login'},
-   {link:'/signin',name:'Sign in'},
-   {link:'/admin',name:'Add Book'}///addbook is edited to /admin cause admin has only the permission 
+   {link:'/signin',name:'signin'},
+   {link:'/admin',name:'Add Book'},
+   {link:'/aadmin',name:'Add Authors'}///addbook is edited to /admin cause admin has only the permission 
 ];
 
 const bookRouter = require('./src/router/booksRoutes')(nav)
@@ -14,6 +15,9 @@ const authRouter = require('./src/router/authRoutes')(nav)
 const signRouter = require('./src/router/signRoutes')(nav)
 const logRouter = require('./src/router/logRoutes')(nav)
 const adminRouter = require('./src/router/adminRoutes')(nav)
+const aadminRouter = require('./src/router/aadminRoutes')(nav)
+const dashRouter = require('./src/router/dashRouter')(nav)
+
 
 //create separate route handler
 //const authRouter = express.Router;
@@ -28,7 +32,10 @@ app.use('/books',bookRouter);//we use app.use because what ever comes after /boo
 app.use('/authors',authRouter);
 app.use('/signin',signRouter);
 app.use('/admin',adminRouter);
-app.use('/login',logRouter);
+app.use('/Login',logRouter);
+app.use('/dashboard',dashRouter);
+app.use('/aadmin',aadminRouter);
+
 
 app.get('/',function(req,res){
 
@@ -86,6 +93,7 @@ app.get('/',function(req,res){
    
    });
 });*/
+/*
 app.get('/addbook',function(req,res){
    res.render("addbook",{
       nav,
@@ -93,6 +101,13 @@ app.get('/addbook',function(req,res){
    
    });
 });
+app.get('/addauthor',function(req,res){
+   res.render("addauthor",{
+      nav,
+      title:'AddAuthor',
+   
+   });
+});*/
 //here we put/ only beacause its already declared
 /*authRouter.get('/',function(req,res){
    res.render("authors",{

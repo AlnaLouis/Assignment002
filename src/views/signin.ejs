@@ -87,7 +87,7 @@ style="
 "
 >
 <div class="container w-10 bg-light my-5">
-  <form  >
+  <form method="post"  action="/signin/signin "  >
     <div class="mb-3 px-2" >
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" aria-describedby="firstName">
@@ -98,15 +98,15 @@ style="
       </div>
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <input type="password" class="form-control" id="password">
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword2" class="form-label"> re-enter Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword2">
+      <input type="password" class="form-control" id="password2">
     </div>
     <br>
     <button type="submit"  class="btn btn-primary" onclick="index.ejs">Submit</button>

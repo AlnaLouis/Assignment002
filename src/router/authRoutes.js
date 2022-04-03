@@ -1,7 +1,8 @@
 const express = require('express');
-const authRouter = express.Router();
-function router1(nav){
-    var authors =
+const AuthRouter = express.Router();
+const Authordata = require('../model/Authordata');
+function router(nav){
+  /*var authors =
     [
         {
             title:'Tom and Jerry',
@@ -13,7 +14,7 @@ function router1(nav){
             title:'Pathumayude Aadu',
             author:'Basheer',
             genre:'Drama',
-            img:"rowling.jpg"
+            img:"path.jpg"
         },
         {
             title:'Harry Potter',
@@ -22,31 +23,38 @@ function router1(nav){
             img:"a.jpg"
         }
     
-    ];
-    
-    authRouter.get('/',function(req,res){
-        res.render("authors",{
-            nav,
-            title:'Authors',
-            authors
-        
-        });
+    ];*/
+    AuthRouter.get('/',function(req,res){
+        Authordata.find()
+        .then(function(authors){
+            res.render("authors",{
+                nav,
+                title:'Authors',
+                authors
+            
+            });
+        })
+       
     });
     
-    authRouter.get('/:id',function(req,res){
+    AuthRouter.get('/:id',function(req,res){
         const id = req.params.id;
-        res.render("author",{
-            nav,
-            title:'Author',
-            author:authors[id]
+        Authordata.findOne({_id:id})
+        .then(function(author){
+            res.render("author",{
+                nav,
+                title:'Author',
+                author 
+            
+            });
+        })
         
-        });
     });
-   return authRouter; 
+   return AuthRouter; 
 }
 
 
 
 
 
-module.exports = router1;
+module.exports = router;
