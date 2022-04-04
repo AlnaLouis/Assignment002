@@ -88,31 +88,27 @@ style="
 "
 >
 <div class="container w-10 bg-light my-5">
-  <form method="post"  action="/signin/signin "  >
+  <form method="post"  action="/signin/signin "  onsubmit="return !!(userValidate()& checkpassword()&checkpassword2()&checkemail())" >
     <div class="mb-3 px-2" >
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" aria-describedby="firstName">
-        <small></small>
+        <input type="text" class="form-control" id="fname" aria-describedby="firstName">
+        <small id="error"></small>
       </div>
-      <div class="mb-3" >
-        <label for="lname" class="form-label"> Last Name</label>
-        <input type="text" class="form-control" id="lname" aria-describedby="LastName">
-        <small></small>
-      </div>
+     
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-      <small></small>
+      <small id="error1"></small>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
       <input type="password" class="form-control" id="password1">
-      <small></small>
+      <small id="error2"></small>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword2" class="form-label"> re-enter Password</label>
       <input type="password" class="form-control" id="password2">
-      <small></small>
+      <small id="error3"></small>
     </div>
     <br>
     <button type="submit"  class="btn btn-primary" onclick="index.ejs">Submit</button>

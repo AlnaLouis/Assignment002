@@ -31,7 +31,7 @@ function router(nav){
      }
      var user=  Userdata(item);
      user.save();//saving to database
-     res.redirect('/dashboard');
+     //res.redirect('/dashboard');
    })
    
     

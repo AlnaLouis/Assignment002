@@ -1,6 +1,7 @@
 //const { name } = require('ejs');
 
 const express = require('express');
+//const methodOverride = require('method-override')
 const nav = [
    {link:'/books',name:'Books'},
    {link:'/authors',name:'Authors'},
@@ -36,6 +37,7 @@ app.use('/admin',adminRouter);
 app.use('/Login',logRouter);
 app.use('/dashboard',dashRouter);
 app.use('/aadmin',aadminRouter);
+//app.use(methodOverride('_method'));
 
 
 app.get('/',function(req,res){
@@ -118,4 +120,4 @@ app.get('/addauthor',function(req,res){
    });
 });*/
 
-app.listen(process.env.PORT || 7001);
+app.listen(process.env.PORT || 7000);

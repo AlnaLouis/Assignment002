@@ -50,6 +50,10 @@ function router(nav){
         })
         
     });
+    AuthRouter.put("/UpdateUser",function(req,res,next){
+        req
+    })
+   
    return AuthRouter; 
 }
 
@@ -58,3 +62,16 @@ function router(nav){
 
 
 module.exports = router;
+/*
+ AuthRouter.get('/:id',(req,res)=>{
+        res.send('show Author'+req.params.id)
+    })
+    AuthRouter.get('/:id/edit',(req,res)=>{
+        res.send('Edit Author'+req.params.id)
+    })
+    AuthRouter.put('/:id',(req,res)=>{
+        res.send('Update Author'+req.params.id)
+    })
+    AuthRouter.delete('/:id',(req,res)=>{
+        res.send('Delete Author'+req.params.id)
+    })*/
