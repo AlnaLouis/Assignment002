@@ -9,11 +9,12 @@ mongoose.connect('mongodb://localhost:27017/library');
 const Schema = mongoose.Schema;
 //CREATING A SCHEMA USING NEW CONSTRUCTOR
 const UserSchema = new Schema({
-    name:String,
-   lname :String,
+    username:String,
+    pass:String,
+    conpass :String,
     email:String,
-    password:String,
-    password2 :String
+    mobile:String,
+
 });
 //MODEL CREATION
 var Userdata = mongoose.model('Userdata',UserSchema);

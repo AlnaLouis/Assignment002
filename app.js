@@ -5,10 +5,12 @@ const express = require('express');
 const nav = [
    {link:'/books',name:'Books'},
    {link:'/authors',name:'Authors'},
-   {link:'/login',name:'Login'},
-   {link:'/signin',name:'signin'},
+   {link:'/log',name:'Login'},
+   {link:'/sign',name:'signin'},
    {link:'/admin',name:'Add Book'},
-   {link:'/aadmin',name:'Add Authors'}
+   {link:'/aadmin',name:'Add Authors'},
+   {link:'/updateauthor',name:'Update Author'}
+
   ///addbook is edited to /admin cause admin has only the permission 
 ];
 
@@ -19,7 +21,7 @@ const logRouter = require('./src/router/logRoutes')(nav)
 const adminRouter = require('./src/router/adminRoutes')(nav)
 const aadminRouter = require('./src/router/aadminRoutes')(nav)
 const dashRouter = require('./src/router/dashRouter')(nav)
-
+const updateAuthorRouter = require('./src/router/updateAuthorRoutes')(nav)
 
 //create separate route handler
 //const authRouter = express.Router;
@@ -32,11 +34,12 @@ app.set('views',__dirname+'/src/views');//this can be also given as__dirname+ in
 // teaching server that when ever / books come it  it should route to books
 app.use('/books',bookRouter);//we use app.use because what ever comes after /book/ it should route to books page
 app.use('/authors',authRouter);
-app.use('/signin',signRouter);
+app.use('/sign',signRouter);
 app.use('/admin',adminRouter);
-app.use('/Login',logRouter);
+app.use('/log',logRouter);
 app.use('/dashboard',dashRouter);
 app.use('/aadmin',aadminRouter);
+app.use('/updateauthor',updateAuthorRouter);
 //app.use(methodOverride('_method'));
 
 

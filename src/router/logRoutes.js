@@ -27,7 +27,7 @@ const logRouter = express.Router();
 
 function router(nav){
     logRouter.get('/',function(req,res){//  the "/ "  is only needed to mention the /admin as it is already stored in app.use
-        res.render("login",{
+        res.render("log",{
             nav,
             title:'Login'
         });
@@ -35,7 +35,7 @@ function router(nav){
     
     // CHANGE "dminRouter.get('/add',function(req,res){"  "to dminRouter.post('/add',function(req,res){" as we are using post method
 //adminRouter.get('/add',function(req,res){
-    logRouter.post('/login',function(req,res){  
+    logRouter.post('/add',function(req,res){  
 /*  res.send("Hey I am added");*/  /* this is to show a message in the screen while directing to /admin/add  */
   /*WE ARE COMMENTING THE OBJECT AND THE THREE LINES OF CODE BELOW TO USE POST METHOD*/
  //now we are deleting the commented thiis earlier and res.send()
@@ -56,7 +56,7 @@ function router(nav){
     image: req.query.image
    }*/
 
-  //res.redirect('/dashboard');
+  res.redirect('/dashboard');
   
 
   //to check post method try again  the res.send('Hey I am added)

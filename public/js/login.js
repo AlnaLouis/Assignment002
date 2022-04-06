@@ -1,3 +1,73 @@
+function validation(){
+  var username = document.getElementById("username").value;
+  var pass = document.getElementById("pass").value;
+  var conpass = document.getElementById("conpass").value;
+  var mobile = document.getElementById("mobile").value;
+  var email = document.getElementById("email").value;
+
+  var reg =/^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;
+
+
+
+
+
+  if(username==""){
+    document.getElementById("usernameer").innerHTML = `<b>**Please fill the username field:(</b>`;
+    return false;
+  }
+  if((username.length <=3)||(username.length>=20)){
+    document.getElementById("usernameer").innerHTML = `**<b>The Username length sholud not be 3 or less and 20 or greater:(</b>`;
+    return false;
+  }
+
+
+  if(pass==""){
+    document.getElementById("password").innerHTML = `<b>**Please fill the password field;(</b>`;
+    return false;
+  }
+  if((pass.length <=5)||(pass.length>=10)){
+    document.getElementById("password").innerHTML = `**<b>The password length sholud not be 5 or less and 10 or greater:(</b>`;
+    return false;
+  }
+
+  if(conpass==""){
+    document.getElementById("confirmpassword").innerHTML = `<b>**Please fill to confirm the password field;(</b>`;
+    return false;
+  }
+  if(pass!=conpass){
+    document.getElementById("confirmpassword").innerHTML = `<b>**Please recheck the both password fields;(</b>`;
+    return false;
+  }
+
+  if(mobile==""){
+    document.getElementById("phonenumber").innerHTML = `<b>**Please fill the mobile number field:(</b>`;
+    return false;
+  }
+  if(isNaN(mobile)){
+    document.getElementById("phonenumber").innerHTML = `<b>**Oop's doubt if that is a number:(</b>`;
+    return false;
+  }
+  if(mobile.length!=10){
+    document.getElementById("phonenumber").innerHTML = `<b>**Please enter a valid phone number of 10 digits:(</b>`;
+    return false;
+  }
+
+
+  if(email==""){
+    document.getElementById("eid").innerHTML = `<b>**Please fill the email field:( </b>`;
+    return false;
+  }
+ 
+   
+    if(!(reg1.test(myInput.value))){
+      document.getElementById("eid").innerHTML = `<b>**Please enter valid email id:( </b>`;
+      return false;
+    }
+}
+
+
+
+
 /*
 let fname = document.getElementById("name");
 let lname = document.getElementById("lname");
@@ -240,7 +310,7 @@ function setSuccessFor(input){
   
 // }
 */
-
+/*
 email = document.getElementById('email');
 password1= document.getElementById('password1');
 password2= document.getElementById('password2');
@@ -333,4 +403,4 @@ else if(!reg1.test(password2.value.trim())) {
    error3.innerHTML="";
    password2.style.border="2px solid green";
    return true;
-}
+}*/

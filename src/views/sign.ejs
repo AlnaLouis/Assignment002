@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Sign in</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style1.css">
+    
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+<header class="navbar navbar-bright navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">Home</a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <%for(i=2;i<4;i++){%>
+          <li>
+          <a href=" <%=nav[i].link%>"> <%=nav[i].name%></a>
+        </li>
+        <%}%>
+      </ul>
+     
+      <ul class="nav navbar-right navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+          <ul class="dropdown-menu" style="padding:12px;">
+            <form class="form-inline">
+              <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+            </form>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="masthead">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1> Sign in
+          <p class="lead"></p>
+        </h1>
+      </div>
+      <div class="col-md-5">
+        <div class="well well-lg"> 
+          <div class="row">
+            <div class="col-sm-12">
+              
+			
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+         <!--div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> </div>
+      </div>
+    </div> 
+  </div--> <!-- /cont -->
+  
+</div>
+<div
+class="p-5  bg-image"
+style="
+  background-image: url('https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGlicmFyaWVzfGVufDB8fDB8fA%3D%3D&w=1000&q=80');
+  height: 700px;
+"
+>
+
+  <div class="container w-25 bg-light my-5">
+    <form method="POST" action="/sign/add" onsubmit="return validation()">
+      <div class="mb-3" >
+          <label for="username" class="form-label"> Username</label>
+          <input type="text" class="form-control" id="username" name="username" aria-describedby="username">
+          <span id="usernameer" class="text-danger font-weight-bold" ></span>
+        </div>
+        <div class="mb-3" >
+          <label for="mobile" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" name="mobile" id="mobile" aria-describedby="Phone Number">
+          <span id="phonenumber" class="text-danger font-weight-bold" ></span>
+        </div>
+      <div class="mb-3" >
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="text" class="form-control"name="email" id="email" aria-describedby="email">
+        <span id="eid" class="text-danger font-weight-bold" ></span>
+      </div>
+      <div class="mb-3" >
+        <label for="exampleInputEmail1" class="form-label">Password</label>
+        <input type="text" class="form-control"name="pass" id="pass" aria-describedby="password">
+        <span id="password" class="text-danger font-weight-bold" ></span>
+      </div>
+      <div class="mb-3" >
+        <label for="exampleInputEmail1" class="form-label">Confirm password</label>
+        <input type="text" class="form-control"name="conpass" id="conpass" aria-describedby="confirmpassword">
+        <span id="confirmpassword" class="text-danger font-weight-bold" ></span>
+      </div>
+      
+     
+      <button type="submit"  class="btn btn-primary" onclick="index.ejs">Submit</button>
+    </form>
+  </div>
+  <!--<div class="col-lg-8 m-auto d-block">
+ <form method="post"  action="sign/add "  onsubmit="return validation()" class="bg-light" >
+  <br>
+   <div class="form-group">
+     <label>Username</label>
+     <input type="text" name="user" class="form-control" id="user" autocomplete="off">
+     <span id="username" class="text-danger font-weight-bold" ></span>
+   </div>
+   <div class="form-group">
+    <label>Password</label>
+    <input type="text" name="pass" class="form-control" id="pass" autocomplete="off">
+    <span id="password" class="text-danger font-weight-bold" ></span>
+  </div>
+  <div class="form-group">
+    <label>Confirm password</label>
+    <input type="text" name="conpass" class="form-control" id="conpass" autocomplete="off">
+    <span id="confirmpassword" class="text-danger font-weight-bold" ></span>
+  </div>
+  <div class="form-group">
+    <label>Phone number</label>
+    <input type="text" name="mobile" class="form-control" id="mobile" autocomplete="off">
+    <span id="phonenumber"class="text-danger font-weight-bold" ></span>
+  </div>
+  <div class="form-group">
+    <label>Email id</label>
+    <input type="text" name="email" class="form-control" id="email" autocomplete="off">
+    <span id="eid"class="text-danger font-weight-bold" ></span>
+  </div>
+
+     
+     
+    <br>
+    <button type="submit"  class="btn btn-primary" onclick="index.ejs">Submit</button>
+  </form>
+</div> 
+-->
+
+
+
+</div>
+<div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+      
+      <h1>Follow Us</h1>
+      <div class="btn-group">
+       <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+	   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      <div class="col-sm-6">
+          <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
+      </div>
+    </div>
+  </div>
+</footer>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
+	</body>
+</html>
