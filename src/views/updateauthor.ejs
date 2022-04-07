@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -53,7 +54,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Update Authors
+        <h1><%=title%>
           <p class="lead"></p>
         </h1>
       </div>
@@ -80,18 +81,18 @@
   
 </div>
 <div class="container w-25 bg-light my-5">
-  <form method="POST" action="updateauthor">
+  <form method="POST" action="/edit/<%=author._id%>">
     <div class="mb-3" >
         <label for="name" class="form-label"> Author Name</label>
-        <input type="text" class="form-control" id="author" name="author" aria-describedby="firstName">
+        <input type="text" class="form-control" id="author" name="author" aria-describedby="firstName" value="<%=author.author%>" required>
       </div>
       <div class="mb-3" >
         <label for="lname" class="form-label"> Book Name</label>
-        <input type="text" class="form-control" name="title" id="title" aria-describedby="LastName">
+        <input type="text" class="form-control" name="title" id="title" aria-describedby="LastName"value="<%=author.title%>">
       </div>
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Genre</label>
-      <input type="text" class="form-control"name="genre" id="genre" aria-describedby="emailHelp">
+      <input type="text" class="form-control"name="genre" id="genre" aria-describedby="emailHelp"value="<%=author.genre%>">
     </div>
     <!--
     <div class="mb-3" >
@@ -102,9 +103,9 @@
     <br>
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Image</label>
-      <input type="file" name = "image" id="image">
+      <input type="file" name = "image" id="image"value="<%=author.image%>">
       <br>
-      <button type = submit>Update</button>
+     
       
 
     </div>
@@ -117,7 +118,7 @@
       <input type="password" class="form-control" id="exampleInputPassword2">
     </div>
 -->
-    <button type="submit"  class="btn btn-primary" onclick="index.ejs">Submit</button>
+    <button type="submit"  class="btn btn-primary" onclick="index.ejs">Edit</button>
   </form>
 </div>
 
