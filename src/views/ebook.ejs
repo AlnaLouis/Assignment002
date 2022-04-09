@@ -81,18 +81,18 @@
   <br>
 </div>
 <div class="container w-25 bg-light my-5">
-  <form method="POST" action="/editb/<%=books._id%>">
+  <form method="POST" action="/ebook/<%=book._id%>">
     <div class="mb-3" >
         <label for="name" class="form-label"> Author Name</label>
-        <input type="text" class="form-control" id="author" name="author"value="<%=books[i].author%>" aria-describedby="firstName">
+        <input type="text" class="form-control" id="author" name="author"value="<%=book?.author%>" aria-describedby="firstName">
       </div>
       <div class="mb-3" >
         <label for="lname" class="form-label"> Book Name</label>
-        <input type="text" class="form-control" name="title" id="title" aria-describedby="LastName" value="<%=books[i].title%>">
+        <input type="text" class="form-control" name="title" id="title" aria-describedby="LastName" value="<%=book.title%>">
       </div>
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Genre</label>
-      <input type="text" class="form-control"name="genre" id="genre" aria-describedby="emailHelp" value="<%=books[i].genre%>">
+      <input type="text" class="form-control"name="genre" id="genre" aria-describedby="emailHelp" value="<%=book.genre%>">
     </div>
     <!--
     <div class="mb-3" >
@@ -102,7 +102,7 @@
     -->
     <div class="mb-3" >
       <label for="exampleInputEmail1" class="form-label">Image</label>
-      <input type="file" name = "image" id="image"value="<%=books[i].image%>">
+      <input type="file" name = "image" id="image"value="<%=book.image%>">
      <br>
     </div>
     <!--<div class="mb-3">

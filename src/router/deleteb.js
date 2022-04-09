@@ -1,6 +1,6 @@
 const express = require('express');
 const deleteBookRouter = express.Router();
-const Bookdata= require('../model/Authordata');
+const Bookdata= require('../model/Bookdata');
 
 function router(nav){
     deleteBookRouter.get('/',function(req,res){//  the "/ "  is only needed to mention the /admin as it is already stored in app.use
@@ -21,7 +21,7 @@ function router(nav){
                 res.render('deletebook',{
                     nav,
                     title:'Library',
-                    author: docs 
+                    book: docs 
                 });
             }
             else{
@@ -53,7 +53,7 @@ function router(nav){
 
         Bookdata.deleteOne({_id:id},  (err)=>{
             if(!err){
-                res.redirect('/authors');
+                res.redirect('/books');
             }
             else{
                 console.log(err);

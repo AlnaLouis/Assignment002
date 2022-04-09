@@ -21,8 +21,8 @@ const aadminRouter = require('./src/router/aadminRoutes')(nav)
 const dashRouter = require('./src/router/dashRouter')(nav)
 const updateAuthorRouter = require('./src/router/updateAuthorRoutes')(nav)
 const deleteAuthorRouter = require('./src/router/deletea')(nav)
-const editBookRouter= require('./src/router/editbook');
-const deleteBookRouter= require('./src/router/deleteb');
+const editBookRouter= require('./src/router/editbook')(nav)
+const deleteBookRouter= require('./src/router/deleteb')(nav)
 //create separate route handler
 //const authRouter = express.Router;
 const app = express();
@@ -41,8 +41,8 @@ app.use('/dashboard',dashRouter);
 app.use('/aadmin',aadminRouter);
 app.use('/edit',updateAuthorRouter);
 app.use('/delete',deleteAuthorRouter);
-app.use('/editb',editBookRouter);
-app.use('/deleteb',deleteBookRouter);
+app.use('/ebook',editBookRouter);
+app.use('/deletebook',deleteBookRouter);
 //app.use(methodOverride('_method'));
 
 
@@ -126,4 +126,4 @@ app.get('/addauthor',function(req,res){
    });
 });*/
 
-app.listen(process.env.PORT || 7000);
+app.listen(process.env.PORT || 7001);

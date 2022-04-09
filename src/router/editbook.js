@@ -1,10 +1,10 @@
 const express = require('express');
 const editBookRouter = express.Router();
-const   Bookdata= require('../model/Bookdata');
+const Bookdata= require('../model/Bookdata');
 
 function router(nav){
     editBookRouter.get('/',function(req,res){//  the "/ "  is only needed to mention the /admin as it is already stored in app.use
-        res.render("editbook",{
+        res.render("ebook",{
             nav,
             title:'Library'
         })
@@ -17,10 +17,10 @@ function router(nav){
         
         Bookdata.findById(id,function(err,doc){
             if(!err){
-                res.render('editbook',{
+                res.render('ebook',{
                     nav,
                     title:'Library',
-                    author: doc 
+                    book: doc 
                 });
             }
             else{
@@ -30,11 +30,11 @@ function router(nav){
     });
     
     //router to delete
-   /* editBookRouter.get('/:id',(req,res)=>{
+    editBookRouter.get('/:id',(req,res)=>{
         const id = req.params.id;
         Bookdata.findByIdAndDelete(id,(err,docs)=>{
             if(!err){
-                res.render('deletebook',{
+                res.render('deleteb',{
                     nav,
                     title:'Library',
                     book: doc 
@@ -42,7 +42,7 @@ function router(nav){
             }
             else{
                 console.log(err);
-            }*/
+            }
             /*if(err){
                 console.log("Something went wrong while deleting the data");
                 next(err);
@@ -67,7 +67,7 @@ function router(nav){
             image:req.body.image}
         
 
-                Bookdata.updateOne({_id:id},  (err)=>{
+        Bookdata.updateOne({_id:id},  (err)=>{
             if(!err){
                 res.redirect('/books');
             }
