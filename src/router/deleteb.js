@@ -1,43 +1,27 @@
 const express = require('express');
-const updateAuthorRouter = express.Router();
-const Authordata= require('../model/Authordata');
+const deleteBookRouter = express.Router();
+const Bookdata= require('../model/Authordata');
 
 function router(nav){
-    updateAuthorRouter.get('/',function(req,res){//  the "/ "  is only needed to mention the /admin as it is already stored in app.use
-        res.render("newauthor",{
+    deleteBookRouter.get('/',function(req,res){//  the "/ "  is only needed to mention the /admin as it is already stored in app.use
+        res.render("deletebook",{
             nav,
             title:'Library'
         })
     })
 
 
-    // route to show update element
-    updateAuthorRouter.get('/:id',function(req,res){
-        const id = req.params.id;
-        
-        Authordata.findById(id,function(err,doc){
-            if(!err){
-                res.render('newauthor',{
-                    nav,
-                    title:'Library',
-                    author: doc 
-                });
-            }
-            else{
-                console.log(err);
-            }
-        });
-    });
+
     
     //router to delete
-    updateAuthorRouter.get('/:id',(req,res)=>{
+    deleteBookRouter.get('/:id',(req,res)=>{
         const id = req.params.id;
-        Authordata.findByIdAndDelete(id,(err,docs)=>{
+        Bookdata.findByIdAndDelete(id,(err,docs)=>{
             if(!err){
-                res.render('deletea',{
+                res.render('deletebook',{
                     nav,
                     title:'Library',
-                    author: doc 
+                    author: docs 
                 });
             }
             else{
@@ -57,7 +41,7 @@ function router(nav){
 
 
 
-    updateAuthorRouter.post('/:id',function(req,res){
+    deleteBookRouter.post('/:id',function(req,res){
         const id = req.params.id;
         
         var updateditem = {
@@ -67,7 +51,7 @@ function router(nav){
             image:req.body.image}
         
 
-        Authordata.updateOne({_id:id},  (err)=>{
+        Bookdata.deleteOne({_id:id},  (err)=>{
             if(!err){
                 res.redirect('/authors');
             }
@@ -78,6 +62,6 @@ function router(nav){
     });
 
 
-    return updateAuthorRouter;
+    return deleteBookRouter;
 }
 module.exports = router;

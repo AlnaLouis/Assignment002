@@ -6,10 +6,8 @@ const nav = [
    {link:'/books',name:'Books'},
    {link:'/authors',name:'Authors'},
    {link:'/log',name:'Login'},
-   {link:'/sign',name:'signin'},
-   {link:'/admin',name:'Add Book'},
-   {link:'/aadmin',name:'Add Authors'},
-   {link:'/updateauthor',name:'Update Author'}
+   {link:'/sign',name:'signin'}
+ 
 
   ///addbook is edited to /admin cause admin has only the permission 
 ];
@@ -22,7 +20,9 @@ const adminRouter = require('./src/router/adminRoutes')(nav)
 const aadminRouter = require('./src/router/aadminRoutes')(nav)
 const dashRouter = require('./src/router/dashRouter')(nav)
 const updateAuthorRouter = require('./src/router/updateAuthorRoutes')(nav)
-
+const deleteAuthorRouter = require('./src/router/deletea')(nav)
+const editBookRouter= require('./src/router/editbook');
+const deleteBookRouter= require('./src/router/deleteb');
 //create separate route handler
 //const authRouter = express.Router;
 const app = express();
@@ -39,7 +39,10 @@ app.use('/admin',adminRouter);
 app.use('/log',logRouter);
 app.use('/dashboard',dashRouter);
 app.use('/aadmin',aadminRouter);
-app.use('/updateauthor',updateAuthorRouter);
+app.use('/edit',updateAuthorRouter);
+app.use('/delete',deleteAuthorRouter);
+app.use('/editb',editBookRouter);
+app.use('/deleteb',deleteBookRouter);
 //app.use(methodOverride('_method'));
 
 

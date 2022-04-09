@@ -1,10 +1,10 @@
 const express = require('express');
-const updateAuthorRouter = express.Router();
-const Authordata= require('../model/Authordata');
+const editBookRouter = express.Router();
+const   Bookdata= require('../model/Bookdata');
 
 function router(nav){
-    updateAuthorRouter.get('/',function(req,res){//  the "/ "  is only needed to mention the /admin as it is already stored in app.use
-        res.render("newauthor",{
+    editBookRouter.get('/',function(req,res){//  the "/ "  is only needed to mention the /admin as it is already stored in app.use
+        res.render("editbook",{
             nav,
             title:'Library'
         })
@@ -12,12 +12,12 @@ function router(nav){
 
 
     // route to show update element
-    updateAuthorRouter.get('/:id',function(req,res){
+    editBookRouter.get('/:id',function(req,res){
         const id = req.params.id;
         
-        Authordata.findById(id,function(err,doc){
+        Bookdata.findById(id,function(err,doc){
             if(!err){
-                res.render('newauthor',{
+                res.render('editbook',{
                     nav,
                     title:'Library',
                     author: doc 
@@ -30,19 +30,19 @@ function router(nav){
     });
     
     //router to delete
-    updateAuthorRouter.get('/:id',(req,res)=>{
+   /* editBookRouter.get('/:id',(req,res)=>{
         const id = req.params.id;
-        Authordata.findByIdAndDelete(id,(err,docs)=>{
+        Bookdata.findByIdAndDelete(id,(err,docs)=>{
             if(!err){
-                res.render('deletea',{
+                res.render('deletebook',{
                     nav,
                     title:'Library',
-                    author: doc 
+                    book: doc 
                 });
             }
             else{
                 console.log(err);
-            }
+            }*/
             /*if(err){
                 console.log("Something went wrong while deleting the data");
                 next(err);
@@ -57,7 +57,7 @@ function router(nav){
 
 
 
-    updateAuthorRouter.post('/:id',function(req,res){
+    editBookRouter.post('/:id',function(req,res){
         const id = req.params.id;
         
         var updateditem = {
@@ -67,9 +67,9 @@ function router(nav){
             image:req.body.image}
         
 
-        Authordata.updateOne({_id:id},  (err)=>{
+                Bookdata.updateOne({_id:id},  (err)=>{
             if(!err){
-                res.redirect('/authors');
+                res.redirect('/books');
             }
             else{
                 console.log(err);
@@ -78,6 +78,6 @@ function router(nav){
     });
 
 
-    return updateAuthorRouter;
+    return editBookRouter;
 }
 module.exports = router;
