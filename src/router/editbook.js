@@ -1,5 +1,18 @@
 const express = require('express');
 const editBookRouter = express.Router();
+const multer=require('multer');
+
+
+const fileStorageEngine=multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,"public/images")
+    },
+    filename:(req,file,cb)=>{
+        cb(null,Date.now()+'--'+file.originalname);
+    }
+})
+const upload=multer({storage:fileStorageEngine})
+
 const Bookdata= require('../model/Bookdata');
 
 function router(nav){
@@ -57,14 +70,14 @@ function router(nav){
 
 
 
-    editBookRouter.post('/:id',function(req,res){
+    editBookRouter.post('/:id',upload.single('image'),function(req,res){
         const id = req.params.id;
         
         var updateditem = {
             name: req.body.name,
             books:req.body.books,
             genre:req.body.genre,
-            image:req.body.image}
+            image:req.file.filename}
         
 
         Bookdata.updateOne({_id:id},  (err)=>{

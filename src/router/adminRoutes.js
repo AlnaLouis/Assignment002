@@ -24,6 +24,19 @@ module.exports = routers;
 
 const express = require('express');
 const adminRouter = express.Router();
+const multer=require('multer');
+
+
+const fileStorageEngine=multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,"public/images")
+    },
+    filename:(req,file,cb)=>{
+        cb(null,Date.now()+'--'+file.originalname);
+    }
+})
+const upload=multer({storage:fileStorageEngine})
+
 const Bookdata = require('../model/Bookdata');
 
 function router(nav){
@@ -36,19 +49,19 @@ function router(nav){
     
     // CHANGE "dminRouter.get('/add',function(req,res){"  "to dminRouter.post('/add',function(req,res){" as we are using post method
 //adminRouter.get('/add',function(req,res){
-    adminRouter.post('/add',function(req,res){  
+    adminRouter.post('/add',upload.single('image'),function(req,res){  
 /*  res.send("Hey I am added");*/  /* this is to show a message in the screen while directing to /admin/add  */
   /*WE ARE COMMENTING THE OBJECT AND THE THREE LINES OF CODE BELOW TO USE POST METHOD*/
  //now we are deleting the commented thiis earlier and res.send()
 
- //
+ console.log(req.file);
   
     //IF we are using get method req.query is needed but if we are using post we can use req.params
     var item={
         title: req.body.title,
         author:req.body.author,
         genre:req.body.genre,
-        image:req.body.image
+        image:req.file.filename
     }
    
    

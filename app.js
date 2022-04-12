@@ -1,6 +1,10 @@
 //const { name } = require('ejs');
 
 const express = require('express');
+const { contentType } = require('express/lib/response');
+//const multer = require('multer');
+//const ejs = require('ejs');
+//const path = require('path');
 //const methodOverride = require('method-override')
 const nav = [
    {link:'/books',name:'Books'},
@@ -45,6 +49,36 @@ app.use('/ebook',editBookRouter);
 app.use('/deletebook',deleteBookRouter);
 //app.use(methodOverride('_method'));
 
+//storage
+/*
+const Storage = multer.diskStorage({
+   destination:'uploads',
+   filename:(req,file,cb)=>{
+      cb(null,file.originalname);
+   },
+});
+const uploads = multer ({
+   storage:Storage
+}).single('testImage')
+
+app.post('/upload',(req,res)=>{
+   upload(req,res,(err)=>{
+      if(err){
+         console.log(err);
+      }else{
+         const newImage = new ImageModel({
+            name:req.body.name,
+         image:{
+            data:req.file.filename,
+            contentType:'image/png'
+         }
+      })
+      newImage.save()
+      .then(()=>res.send('sucessfully uploaded'))
+      .catch(err=>console.log(err));
+   }
+})
+})*/
 
 app.get('/',function(req,res){
 
@@ -126,4 +160,4 @@ app.get('/addauthor',function(req,res){
    });
 });*/
 
-app.listen(process.env.PORT || 7001);
+app.listen(process.env.PORT || 7000);
